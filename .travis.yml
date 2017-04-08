@@ -4,8 +4,14 @@ node_js:
 branches:
   only:
   - master
-after_success:
-- "./deploy.sh"
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash deploy.sh
+  on:
+    branch: master
+git:
+  depth: 1
 env:
   global:
   - secure: p+8GS5MbVbyD3osvdYQD3ByYJWsaJSxyxBuog34eOwn2oFw9x2FZ72PYLBQS4ZlB6Wl6MjpjgsIRetNJs3O0X8Iwgg+U0fVEubvyjU+CioY+fOo87QvFt/GNf9MvrU57oONNos+NkxKTlldSj2Ks0vkAGA4EmqoP+4/E/OqsZJYuytaTBIc8W2nhrZ1fY3Sd59/SOS0OQma9tAzi84uwr4YDhhd7MKkJ5Pqh/9jxQP3kx3v1R1zax7DYI2OvEVb16OP7L8Wu3A74+lOqQYRVcDNePJWxKizkG+FXgy4QRpgjJXYizdjmwIKYPYI1PvTQnb+ZJe1rjXmR4X1XuBiymzFsZGsPJcTjpfiNHX1tD3VguX5ZwEssLcRV1+/OrazMhDO63ei6czXCkHm1R3PT7ZUyDxVvk9josseUfI49iakf9HBwVh+LYbygMHKTmwh2daiMERM6NShHLroANxyTMTptgruJp/VP8TTgeBQNCvACAPazxkR6I/8PSOzcAN1a/1lUWUqq7pxvtg/ItiL82HAfpuvF2mgqlNTuYOXseDgaEy7+kKcsmBVH+FGfFsNJWuFY5+J3KyPuLY2F3WhUPI35Vy4e+ZHX2WXJ44uDaUN2JOyZDIZv1t4ULWm7SmjWEODuDIm511C/DOndd7hzLCXdabkDSMif+QfoHkf0m8I=
